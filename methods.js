@@ -1,15 +1,15 @@
 /**
- * HESAPLAMA METODLARI
+ * CALCULATION METHODS
  * ===================
- * AlAdhan API ve diğer kaynaklar için hesaplama metod tanımları
+ * Calculation method definitions for AlAdhan API and other sources
  * 
- * Bu dosya tüm 15 majör hesaplama metodunu içerir.
- * Her metodun Fajr ve Isha açıları belirlenmiştir.
+ * This file contains all 15 major calculation methods.
+ * Fajr and Isha angles are defined for each method.
  */
 
 /**
- * Metod ID Sabitleri
- * AlAdhan API ile uyumlu ID'ler
+ * Method ID Constants
+ * IDs compatible with AlAdhan API
  */
 export const METHOD_IDS = {
     KARACHI: 1,         // University of Islamic Sciences, Karachi
@@ -24,18 +24,18 @@ export const METHOD_IDS = {
     QATAR: 10,          // Qatar
     SINGAPORE: 11,      // Majlis Ugama Islam Singapura
     FRANCE: 12,         // Union Des Organisations Islamiques De France
-    DIYANET: 13,        // Diyanet İşleri Başkanlığı, Turkey
+    DIYANET: 13,        // Presidency of Religious Affairs, Turkey
     RUSSIA: 14,         // Spiritual Administration of Muslims of Russia
     CUSTOM: 99,         // Custom angles
 };
 
 /**
- * Detaylı Metod Bilgileri
- * Her metod için:
- * - Fajr açısı (güneş ufuk altı derecesi)
- * - Isha açısı (güneş ufuk altı derecesi) veya dakika
- * - Maghrib açısı (sadece Tehran metodu için)
- * - Kullanılan ülkeler
+ * Detailed Method Information
+ * For each method:
+ * - Fajr angle (degrees below horizon)
+ * - Isha angle (degrees below horizon) or minutes
+ * - Maghrib angle (only for Tehran method)
+ * - Countries where used
  */
 export const CALCULATION_METHODS = {
     [METHOD_IDS.KARACHI]: {
@@ -48,7 +48,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['PK', 'IN', 'BD', 'AF', 'NP'],
         region: 'South Asia',
-        notes: 'Güney Asya için yaygın kullanım. Fajr ve Isha için 18° kullanır.',
+        notes: 'Commonly used in South Asia. Uses 18° for Fajr and Isha.',
         source: 'https://www.moonsighting.com/fajr-isha.html'
     },
 
@@ -62,7 +62,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['US', 'CA'],
         region: 'North America',
-        notes: 'Kuzey Amerika için standart. Daha geç Fajr, daha erken Isha.',
+        notes: 'Standard for North America. Later Fajr, earlier Isha.',
         source: 'https://www.isna.net'
     },
 
@@ -76,7 +76,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['GB', 'DE', 'NL', 'BE', 'AT', 'CH', 'JO', 'PS', 'IQ', 'SY', 'LB', 'YE'],
         region: 'Europe / Middle East',
-        notes: 'Avrupa ve Orta Doğu için yaygın. 1986\'dan beri kullanılıyor.',
+        notes: 'Commonly used in Europe and the Middle East. Used since 1986.',
         source: 'https://www.themwl.org'
     },
 
@@ -87,10 +87,10 @@ export const CALCULATION_METHODS = {
         fajrAngle: 18.5,
         ishaAngle: null,
         maghribAngle: null,
-        ishaMinutes: 90, // Ramazan'da 120 dakika
+        ishaMinutes: 90, // 120 minutes during Ramadan
         countries: ['SA', 'BH'],
         region: 'Arabian Peninsula',
-        notes: 'Suudi Arabistan resmi metodu. Isha için Maghrib + 90 dakika.',
+        notes: 'Official method of Saudi Arabia. Maghrib + 90 minutes for Isha.',
         source: 'https://www.ummulqura.org.sa'
     },
 
@@ -104,7 +104,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['EG', 'LY', 'SD', 'SO', 'DJ', 'ER'],
         region: 'North/East Africa',
-        notes: 'Mısır ve çevresi için. En erken Fajr vakitlerinden birini verir.',
+        notes: 'For Egypt and surrounding areas. Provides one of the earliest Fajr times.',
         source: 'https://www.esa.gov.eg'
     },
 
@@ -118,7 +118,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: 90,
         countries: [],
         region: 'Arabian Peninsula',
-        notes: 'Umm Al-Qura ile aynı. AlAdhan uyumluluğu için.',
+        notes: 'Same as Umm Al-Qura. For AlAdhan compatibility.',
         source: 'https://www.ummulqura.org.sa'
     },
 
@@ -128,11 +128,11 @@ export const CALCULATION_METHODS = {
         shortName: 'Tehran',
         fajrAngle: 17.7,
         ishaAngle: 14,
-        maghribAngle: 4.5, // Maghrib için özel açı
+        maghribAngle: 4.5, // Special angle for Maghrib
         ishaMinutes: null,
         countries: ['IR'],
         region: 'Iran',
-        notes: 'Şii hesaplama metodu. Maghrib için güneş ufkun 4.5° altında.',
+        notes: 'Shia calculation method. Maghrib is 4.5° below the horizon.',
         source: 'https://geophysics.ut.ac.ir'
     },
 
@@ -146,7 +146,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: 90,
         countries: ['OM'],
         region: 'Gulf States',
-        notes: 'Genel körfez bölgesi hesaplaması.',
+        notes: 'General Gulf region calculation.',
         source: null
     },
 
@@ -160,7 +160,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['KW'],
         region: 'Kuwait',
-        notes: 'Kuveyt spesifik hesaplama.',
+        notes: 'Kuwait specific calculation.',
         source: 'https://www.awqaf.gov.kw'
     },
 
@@ -174,7 +174,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: 90,
         countries: ['QA'],
         region: 'Qatar',
-        notes: 'Katar spesifik. Isha için Maghrib + 90 dakika.',
+        notes: 'Qatar specific. Maghrib + 90 minutes for Isha.',
         source: 'https://www.awqaf.gov.qa'
     },
 
@@ -188,7 +188,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['SG', 'MY', 'ID', 'BN', 'TH', 'PH'],
         region: 'Southeast Asia',
-        notes: 'Güneydoğu Asya için. En erken Fajr vakitlerini verir.',
+        notes: 'For Southeast Asia. Provides the earliest Fajr times.',
         source: 'https://www.muis.gov.sg'
     },
 
@@ -202,22 +202,22 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['FR'],
         region: 'France',
-        notes: 'Fransa için özel hesaplama. En geç Fajr, en erken Isha.',
+        notes: 'Specific calculation for France. Latest Fajr, earliest Isha.',
         source: 'https://www.uoif-online.com'
     },
 
     [METHOD_IDS.DIYANET]: {
         id: 13,
-        name: 'Diyanet İşleri Başkanlığı',
+        name: 'Presidency of Religious Affairs',
         shortName: 'Diyanet',
         fajrAngle: 18,
         ishaAngle: 17,
         maghribAngle: null,
         ishaMinutes: null,
         asrSchool: 'shafi',  // Diyanet uses Shafi method for Asr
-        countries: ['TR', 'TRNC'], // Türkiye ve KKTC
+        countries: ['TR', 'TRNC'], // Turkey and TRNC
         region: 'Turkey',
-        notes: 'Türkiye resmi takvimi. Diyanet\'in kendi hesaplamaları. Asr için Şafi metodu kullanır.',
+        notes: 'Official Turkish calendar. Diyanet\'s own calculations. Uses Shafi method for Asr.',
         source: 'https://namazvakitleri.diyanet.gov.tr'
     },
 
@@ -231,7 +231,7 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: ['RU', 'KZ', 'UZ', 'AZ', 'TM', 'KG', 'TJ'],
         region: 'Russia / Central Asia',
-        notes: 'Rusya ve Orta Asya için. Yüksek enlemler için uyarlanmış.',
+        notes: 'For Russia and Central Asia. Adapted for high latitudes.',
         source: 'https://www.dumrf.ru'
     },
 
@@ -245,14 +245,14 @@ export const CALCULATION_METHODS = {
         ishaMinutes: null,
         countries: [],
         region: 'Custom',
-        notes: 'Kullanıcı tanımlı açılar.',
+        notes: 'User defined angles.',
         source: null
     }
 };
 
 /**
- * Ülke koduna göre metod ID döndürür
- * @param {string} countryCode - ISO 2 harfli ülke kodu
+ * Returns method ID by country code
+ * @param {string} countryCode - ISO 2-letter country code
  * @returns {number} Method ID
  */
 export const getMethodForCountry = (countryCode) => {
@@ -266,33 +266,33 @@ export const getMethodForCountry = (countryCode) => {
         }
     }
 
-    // Varsayılan: Bölgeye göre tahmin
-    // Avrupa ülkeleri -> MWL
+    // Default: Estimate by region
+    // European countries -> MWL
     const europeanCountries = ['IT', 'ES', 'PT', 'GR', 'PL', 'RO', 'HU', 'CZ', 'SK', 'BG', 'HR', 'RS', 'BA', 'SI', 'AL', 'XK', 'MK', 'ME'];
     if (europeanCountries.includes(code)) {
         return METHOD_IDS.MWL;
     }
 
-    // Afrika ülkeleri -> Egypt veya MWL
+    // African countries -> Egypt or MWL
     const africanCountries = ['MA', 'DZ', 'TN', 'NG', 'SN', 'ML', 'NE', 'TD', 'ET', 'KE', 'TZ', 'UG', 'ZA'];
     if (africanCountries.includes(code)) {
         return METHOD_IDS.EGYPT;
     }
 
-    // Körfez ülkeleri -> Umm Al-Qura
+    // Gulf countries -> Umm Al-Qura
     const gulfCountries = ['AE', 'OM', 'YE'];
     if (gulfCountries.includes(code)) {
         return METHOD_IDS.UMM_AL_QURA;
     }
 
-    // Varsayılan: Diyanet (en yaygın kullanılan ve dengeli)
+    // Default: Diyanet (most commonly used and balanced)
     return METHOD_IDS.DIYANET;
 };
 
 /**
- * Metod ID'den metod adını döndürür
- * @param {number} methodId - Metod ID
- * @returns {string} Metod adı
+ * Returns the method name from method ID
+ * @param {number} methodId - Method ID
+ * @returns {string} Method name
  */
 export const getMethodName = (methodId) => {
     const method = CALCULATION_METHODS[methodId];
@@ -300,9 +300,9 @@ export const getMethodName = (methodId) => {
 };
 
 /**
- * Metod ID'den kısa adı döndürür
- * @param {number} methodId - Metod ID
- * @returns {string} Kısa ad
+ * Returns the short name from method ID
+ * @param {number} methodId - Method ID
+ * @returns {string} Short name
  */
 export const getMethodShortName = (methodId) => {
     const method = CALCULATION_METHODS[methodId];
@@ -310,9 +310,9 @@ export const getMethodShortName = (methodId) => {
 };
 
 /**
- * Metod ID'den açı bilgilerini döndürür
- * @param {number} methodId - Metod ID
- * @returns {object} Açı bilgileri
+ * Returns angle information from method ID
+ * @param {number} methodId - Method ID
+ * @returns {object} Angle information
  */
 export const getMethodAngles = (methodId) => {
     const method = CALCULATION_METHODS[methodId];
@@ -327,12 +327,12 @@ export const getMethodAngles = (methodId) => {
 };
 
 /**
- * UI için metod listesini döndürür
- * @returns {Array} Metod listesi [{id, name, shortName}]
+ * Returns method list for UI
+ * @returns {Array} Method list [{id, name, shortName}]
  */
 export const getMethodsForUI = () => {
     return Object.values(CALCULATION_METHODS)
-        .filter(m => m.id !== 99) // Custom'ı hariç tut
+        .filter(m => m.id !== 99) // Exclude Custom
         .map(m => ({
             id: m.id,
             name: m.name,
@@ -343,10 +343,10 @@ export const getMethodsForUI = () => {
 };
 
 /**
- * İki metod arasındaki farkı hesaplar
- * @param {number} methodId1 - İlk metod ID
- * @param {number} methodId2 - İkinci metod ID
- * @returns {object} Fark bilgisi
+ * Calculates the difference between two methods
+ * @param {number} methodId1 - First method ID
+ * @param {number} methodId2 - Second method ID
+ * @returns {object} Difference information
  */
 export const compareMethodAngles = (methodId1, methodId2) => {
     const m1 = CALCULATION_METHODS[methodId1];
@@ -361,11 +361,11 @@ export const compareMethodAngles = (methodId1, methodId2) => {
         ishaDiff: (m1.ishaAngle || 0) - (m2.ishaAngle || 0),
         notes: {
             fajr: (m1.fajrAngle || 0) > (m2.fajrAngle || 0)
-                ? `${m1.shortName} daha erken Fajr`
-                : `${m2.shortName} daha erken Fajr`,
+                ? `${m1.shortName} earlier Fajr`
+                : `${m2.shortName} earlier Fajr`,
             isha: (m1.ishaAngle || 0) > (m2.ishaAngle || 0)
-                ? `${m1.shortName} daha geç Isha`
-                : `${m2.shortName} daha geç Isha`
+                ? `${m1.shortName} later Isha`
+                : `${m2.shortName} later Isha`
         }
     };
 };

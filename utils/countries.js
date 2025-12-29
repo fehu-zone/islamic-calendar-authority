@@ -1,22 +1,22 @@
 /**
- * ÜKE YARDIMCILARI
- * ================
- * Ülke adı normalizasyonu ve alias'lar
+ * COUNTRY HELPERS
+ * ===============
+ * Country name normalization and aliases
  */
 
 /**
- * Ülke alias'ları -> ISO kodu eşleştirmesi
- * Kullanıcı herhangi bir formatta ülke adı girebilir
+ * Country aliases -> ISO code mapping
+ * User can enter country name in any format
  */
 export const COUNTRY_ALIASES = {
-    // TÜRKİYE
+    // TURKEY
     'turkey': 'TR',
     'türkiye': 'TR',
     'turkiye': 'TR',
     'tr': 'TR',
     'tur': 'TR',
 
-    // SUUDİ ARABİSTAN
+    // SAUDI ARABIA
     'saudi arabia': 'SA',
     'saudi': 'SA',
     'sa': 'SA',
@@ -25,55 +25,55 @@ export const COUNTRY_ALIASES = {
     'kingdom of saudi arabia': 'SA',
     'suudi arabistan': 'SA',
 
-    // MISIR
+    // EGYPT
     'egypt': 'EG',
     'eg': 'EG',
     'egy': 'EG',
     'mısır': 'EG',
     'misir': 'EG',
 
-    // İRAN
+    // IRAN
     'iran': 'IR',
     'ir': 'IR',
     'irn': 'IR',
     'islamic republic of iran': 'IR',
 
-    // PAKİSTAN
+    // PAKISTAN
     'pakistan': 'PK',
     'pk': 'PK',
     'pak': 'PK',
 
-    // HİNDİSTAN
+    // INDIA
     'india': 'IN',
     'in': 'IN',
     'ind': 'IN',
     'hindistan': 'IN',
 
-    // BANGLADEŞ
+    // BANGLADESH
     'bangladesh': 'BD',
     'bd': 'BD',
     'bgd': 'BD',
     'bengaldeş': 'BD',
 
-    // ENDONEZYA
+    // INDONESIA
     'indonesia': 'ID',
     'id': 'ID',
     'idn': 'ID',
     'endonezya': 'ID',
 
-    // MALEZYA
+    // MALAYSIA
     'malaysia': 'MY',
     'my': 'MY',
     'mys': 'MY',
     'malezya': 'MY',
 
-    // SİNGAPUR
+    // SINGAPORE
     'singapore': 'SG',
     'sg': 'SG',
     'sgp': 'SG',
     'singapur': 'SG',
 
-    // ABD
+    // USA
     'united states': 'US',
     'united states of america': 'US',
     'usa': 'US',
@@ -82,13 +82,13 @@ export const COUNTRY_ALIASES = {
     'abd': 'US',
     'amerika': 'US',
 
-    // KANADA
+    // CANADA
     'canada': 'CA',
     'ca': 'CA',
     'can': 'CA',
     'kanada': 'CA',
 
-    // BİRLEŞİK KRALLIK
+    // UNITED KINGDOM
     'united kingdom': 'GB',
     'uk': 'GB',
     'gb': 'GB',
@@ -98,45 +98,45 @@ export const COUNTRY_ALIASES = {
     'england': 'GB',
     'ingiltere': 'GB',
 
-    // ALMANYA
+    // GERMANY
     'germany': 'DE',
     'de': 'DE',
     'deu': 'DE',
     'deutschland': 'DE',
     'almanya': 'DE',
 
-    // FRANSA
+    // FRANCE
     'france': 'FR',
     'fr': 'FR',
     'fra': 'FR',
     'fransa': 'FR',
 
-    // HOLLANDA
+    // NETHERLANDS
     'netherlands': 'NL',
     'nl': 'NL',
     'nld': 'NL',
     'holland': 'NL',
     'hollanda': 'NL',
 
-    // BELÇİKA
+    // BELGIUM
     'belgium': 'BE',
     'be': 'BE',
     'bel': 'BE',
     'belçika': 'BE',
 
-    // İSVİÇRE
+    // SWITZERLAND
     'switzerland': 'CH',
     'ch': 'CH',
     'che': 'CH',
     'isviçre': 'CH',
 
-    // KATAR
+    // QATAR
     'qatar': 'QA',
     'qa': 'QA',
     'qat': 'QA',
     'katar': 'QA',
 
-    // BAE
+    // UAE
     'united arab emirates': 'AE',
     'uae': 'AE',
     'ae': 'AE',
@@ -146,73 +146,73 @@ export const COUNTRY_ALIASES = {
     'dubai': 'AE',
     'abu dhabi': 'AE',
 
-    // KUVEYT
+    // KUWAIT
     'kuwait': 'KW',
     'kw': 'KW',
     'kwt': 'KW',
     'kuveyt': 'KW',
 
-    // BAHREYN
+    // BAHRAIN
     'bahrain': 'BH',
     'bh': 'BH',
     'bhr': 'BH',
     'bahreyn': 'BH',
 
-    // UMMAN
+    // OMAN
     'oman': 'OM',
     'om': 'OM',
     'omn': 'OM',
     'umman': 'OM',
 
-    // ÜRDÜN
+    // JORDAN
     'jordan': 'JO',
     'jo': 'JO',
     'jor': 'JO',
     'ürdün': 'JO',
 
-    // FİLİSTİN
+    // PALESTINE
     'palestine': 'PS',
     'ps': 'PS',
     'pse': 'PS',
     'filistin': 'PS',
 
-    // IRAK
+    // IRAQ
     'iraq': 'IQ',
     'iq': 'IQ',
     'irq': 'IQ',
     'irak': 'IQ',
 
-    // SURİYE
+    // SYRIA
     'syria': 'SY',
     'sy': 'SY',
     'syr': 'SY',
     'suriye': 'SY',
 
-    // LÜBNAN
+    // LEBANON
     'lebanon': 'LB',
     'lb': 'LB',
     'lbn': 'LB',
     'lübnan': 'LB',
 
-    // FAS
+    // MOROCCO
     'morocco': 'MA',
     'ma': 'MA',
     'mar': 'MA',
     'fas': 'MA',
 
-    // CEZAYİR
+    // ALGERIA
     'algeria': 'DZ',
     'dz': 'DZ',
     'dza': 'DZ',
     'cezayir': 'DZ',
 
-    // TUNUS
+    // TUNISIA
     'tunisia': 'TN',
     'tn': 'TN',
     'tun': 'TN',
     'tunus': 'TN',
 
-    // LİBYA
+    // LIBYA
     'libya': 'LY',
     'ly': 'LY',
     'lby': 'LY',
@@ -222,38 +222,38 @@ export const COUNTRY_ALIASES = {
     'sd': 'SD',
     'sdn': 'SD',
 
-    // RUSYA
+    // RUSSIA
     'russia': 'RU',
     'ru': 'RU',
     'rus': 'RU',
     'russian federation': 'RU',
     'rusya': 'RU',
 
-    // KAZAKİSTAN
+    // KAZAKHSTAN
     'kazakhstan': 'KZ',
     'kz': 'KZ',
     'kaz': 'KZ',
     'kazakistan': 'KZ',
 
-    // ÖZBEKİSTAN
+    // UZBEKISTAN
     'uzbekistan': 'UZ',
     'uz': 'UZ',
     'uzb': 'UZ',
     'özbekistan': 'UZ',
 
-    // AZERBAYCAN
+    // AZERBAIJAN
     'azerbaijan': 'AZ',
     'az': 'AZ',
     'aze': 'AZ',
     'azerbaycan': 'AZ',
 
-    // AFGANİSTAN
+    // AFGHANISTAN
     'afghanistan': 'AF',
     'af': 'AF',
     'afg': 'AF',
     'afganistan': 'AF',
 
-    // BOSNA
+    // BOSNIA
     'bosnia': 'BA',
     'bosnia and herzegovina': 'BA',
     'ba': 'BA',
@@ -261,31 +261,31 @@ export const COUNTRY_ALIASES = {
     'bosna': 'BA',
     'bosna hersek': 'BA',
 
-    // ARNAVUTLUK
+    // ALBANIA
     'albania': 'AL',
     'al': 'AL',
     'alb': 'AL',
     'arnavutluk': 'AL',
 
-    // KOSOVA
+    // KOSOVO
     'kosovo': 'XK',
     'xk': 'XK',
     'kosova': 'XK',
 
-    // KUZEY MAKEDONYA
+    // NORTH MACEDONIA
     'north macedonia': 'MK',
     'macedonia': 'MK',
     'mk': 'MK',
     'mkd': 'MK',
     'makedonya': 'MK',
 
-    // NİJERYA
+    // NIGERIA
     'nigeria': 'NG',
     'ng': 'NG',
     'nga': 'NG',
     'nijerya': 'NG',
 
-    // GÜNEY AFRİKA
+    // SOUTH AFRICA
     'south africa': 'ZA',
     'za': 'ZA',
     'zaf': 'ZA',
@@ -296,61 +296,61 @@ export const COUNTRY_ALIASES = {
     'ke': 'KE',
     'ken': 'KE',
 
-    // İSVEÇ
+    // SWEDEN
     'sweden': 'SE',
     'se': 'SE',
     'swe': 'SE',
     'isveç': 'SE',
 
-    // NORVEη
+    // NORWAY
     'norway': 'NO',
     'no': 'NO',
     'nor': 'NO',
     'norveç': 'NO',
 
-    // DANİMARKA
+    // DENMARK
     'denmark': 'DK',
     'dk': 'DK',
     'dnk': 'DK',
     'danimarka': 'DK',
 
-    // FİNLANDİYA
+    // FINLAND
     'finland': 'FI',
     'fi': 'FI',
     'fin': 'FI',
     'fillandiya': 'FI',
 
-    // İタLYA
+    // ITALY
     'italy': 'IT',
     'it': 'IT',
     'ita': 'IT',
     'italya': 'IT',
 
-    // İSPANYA
+    // SPAIN
     'spain': 'ES',
     'es': 'ES',
     'esp': 'ES',
     'ispanya': 'ES',
 
-    // PORTEKİZ
+    // PORTUGAL
     'portugal': 'PT',
     'pt': 'PT',
     'prt': 'PT',
     'portekiz': 'PT',
 
-    // YUNANİSTAN
+    // GREECE
     'greece': 'GR',
     'gr': 'GR',
     'grc': 'GR',
     'yunanistan': 'GR',
 
-    // AVUSTRALYA
+    // AUSTRALIA
     'australia': 'AU',
     'au': 'AU',
     'aus': 'AU',
     'avustralya': 'AU',
 
-    // YENİ ZELANDA
+    // NEW ZEALAND
     'new zealand': 'NZ',
     'nz': 'NZ',
     'nzl': 'NZ',
@@ -358,9 +358,9 @@ export const COUNTRY_ALIASES = {
 };
 
 /**
- * Ülke adını ISO koduna çevirir
- * @param {string} countryName - Herhangi bir formatta ülke adı
- * @returns {string|null} ISO 2 harfli kod veya null
+ * Converts country name to ISO code
+ * @param {string} countryName - Country name in any format
+ * @returns {string|null} ISO 2-letter code or null
  */
 export const getCountryCode = (countryName) => {
     if (!countryName) return null;
@@ -370,9 +370,9 @@ export const getCountryCode = (countryName) => {
 };
 
 /**
- * Ülke adını normalize eder (lowercase, trim)
- * @param {string} countryName - Ham ülke adı
- * @returns {string} Normalize edilmiş ülke adı
+ * Normalizes country name (lowercase, trim)
+ * @param {string} countryName - Raw country name
+ * @returns {string} Normalized country name
  */
 export const normalizeCountryName = (countryName) => {
     if (!countryName) return '';
@@ -380,9 +380,9 @@ export const normalizeCountryName = (countryName) => {
 };
 
 /**
- * ISO kodundan ülke adını döndürür
- * @param {string} code - ISO 2 harfli kod
- * @returns {string|null} İngilizce ülke adı
+ * Returns country name from ISO code
+ * @param {string} code - ISO 2-letter code
+ * @returns {string|null} Country name in English
  */
 export const getCountryNameByCode = (code) => {
     if (!code) return null;
@@ -392,7 +392,7 @@ export const getCountryNameByCode = (code) => {
     // Reverse lookup
     for (const [name, isoCode] of Object.entries(COUNTRY_ALIASES)) {
         if (isoCode === upperCode && name.length > 2) {
-            // En uzun ismi bul (daha açıklayıcı)
+            // Find the longest name (more descriptive)
             return name.charAt(0).toUpperCase() + name.slice(1);
         }
     }

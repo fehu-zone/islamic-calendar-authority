@@ -41,24 +41,11 @@ export {
  * @returns {Promise<object>} Prayer times
  */
 export const getPrayerTimes = async (date, latitude, longitude, options = {}) => {
-    const { useApi = true, method = 13 } = options;
+    const { orchestrator } = await import('../services/orchestrator.js');
 
-    if (useApi) {
-        try {
-            // Try API first
-            const { fetchPrayerTimes } = await import('./aladhan.js');
-            return await fetchPrayerTimes(date, latitude, longitude, { method });
-        } catch (error) {
-            console.warn('API failed, falling back to local calculation:', error.message);
-        }
-    }
-
-    // Fallback to local calculation
-    const { calculatePrayerTimes } = await import('../prayer/calculator.js');
-    const { getMethodForCountry } = await import('../../methods.js');
-
-    return calculatePrayerTimes(date, latitude, longitude, {
-        methodId: method,
+    // The orchestrator handles API fetch, validation, and fallback
+    return orchestrator.getAccurateTimes(date, latitude, longitude, {
+        method: options.method || options.methodId || 13,
         ...options
     });
 };

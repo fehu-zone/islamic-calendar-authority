@@ -1,0 +1,118 @@
+[
+  {
+    "location": "Istanbul, TR",
+    "expected": "Should use API and be VALID",
+    "timeMs": "312",
+    "source": "Internal Calculation",
+    "validation": {
+      "status": "FALLBACK_CRITICAL",
+      "source": "REFERENCE",
+      "reason": "Critical deviation > 15m",
+      "details": [
+        {
+          "prayer": "fajr",
+          "diff": 60,
+          "primary": "06:49",
+          "reference": "05:49"
+        },
+        {
+          "prayer": "sunrise",
+          "diff": 60,
+          "primary": "08:21",
+          "reference": "07:21"
+        },
+        {
+          "prayer": "dhuhr",
+          "diff": 59,
+          "primary": "13:11",
+          "reference": "12:12"
+        },
+        {
+          "prayer": "asr",
+          "diff": 60,
+          "primary": "15:30",
+          "reference": "14:30"
+        },
+        {
+          "prayer": "maghrib",
+          "diff": 60,
+          "primary": "17:51",
+          "reference": "16:51"
+        },
+        {
+          "prayer": "isha",
+          "diff": 61,
+          "primary": "19:18",
+          "reference": "18:17"
+        }
+      ]
+    },
+    "times": {
+      "fajr": "05:49",
+      "maghrib": "16:51"
+    }
+  },
+  {
+    "location": "New York, US",
+    "expected": "Should use API and be VALID",
+    "timeMs": "74",
+    "source": "Internal Calculation",
+    "validation": {
+      "status": "FALLBACK_CRITICAL",
+      "source": "REFERENCE",
+      "reason": "Critical deviation > 15m",
+      "details": [
+        {
+          "prayer": "asr",
+          "diff": -37,
+          "primary": "14:19",
+          "reference": "14:56"
+        }
+      ]
+    },
+    "times": {
+      "fajr": "05:57",
+      "maghrib": "16:36"
+    }
+  },
+  {
+    "location": "Mecca, SA",
+    "expected": "Should use API and be VALID",
+    "timeMs": "73",
+    "source": "Internal Calculation",
+    "validation": {
+      "status": "FALLBACK_CRITICAL",
+      "source": "REFERENCE",
+      "reason": "Critical deviation > 15m",
+      "details": [
+        {
+          "prayer": "dhuhr",
+          "diff": -5,
+          "primary": "12:23",
+          "reference": "12:28"
+        },
+        {
+          "prayer": "asr",
+          "diff": -45,
+          "primary": "15:27",
+          "reference": "16:12"
+        },
+        {
+          "prayer": "maghrib",
+          "diff": -4,
+          "primary": "17:48",
+          "reference": "17:52"
+        }
+      ]
+    },
+    "times": {
+      "fajr": "05:36",
+      "maghrib": "17:52"
+    }
+  },
+  {
+    "test": "Forced Fallback",
+    "source": "Internal Calculation",
+    "success": true
+  }
+]

@@ -1,13 +1,12 @@
 {
-  "name": "islamic-calendar-authority",
-  "version": "1.0.0",
+  "name": "@fehu-zone/islamic-calendar-authority",
+  "version": "2.0.0",
   "description": "Comprehensive Islamic calendar library with prayer times, Ramadan dates, and Qibla calculation based on official religious authorities worldwide",
   "type": "module",
   "main": "index.js",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs"
+      "import": "./index.js"
     },
     "./prayer": {
       "import": "./src/prayer/index.js"
@@ -48,18 +47,17 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/islamic-calendar-authority.git"
+    "url": "https://github.com/fehu-zone/islamic-calendar-authority.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/islamic-calendar-authority/issues"
+    "url": "https://github.com/fehu-zone/islamic-calendar-authority/issues"
   },
-  "homepage": "https://github.com/your-username/islamic-calendar-authority#readme",
+  "homepage": "https://github.com/fehu-zone/islamic-calendar-authority#readme",
   "engines": {
     "node": ">=14.0.0"
   },
   "files": [
     "index.js",
-    "index.cjs",
     "core.js",
     "methods.js",
     "data/",

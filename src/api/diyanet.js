@@ -21,15 +21,15 @@ const DIYANET_BASE_URL = 'https://ezanvakti.emushaf.net';
  */
 export const TURKEY_CITY_CODES = {
     // ==========================================
-    // İSTANBUL İLÇELERİ
+    // ISTANBUL DISTRICTS
     // ==========================================
     istanbul: 9541,           // Fatih (merkez)
     istanbul_fatih: 9541,
-    istanbul_sile: 9547,      // En doğu (Asya)
+    istanbul_sile: 9547,      // Far east (Asia)
     istanbul_pendik: 9545,
     istanbul_kartal: 9542,
     istanbul_maltepe: 9544,
-    istanbul_kadikoy: 9541,   // Fatih ile aynı
+    istanbul_kadikoy: 9541,   // Same as Fatih
     istanbul_uskudar: 9541,
     istanbul_atasehir: 9541,
     istanbul_umraniye: 9541,
@@ -43,12 +43,12 @@ export const TURKEY_CITY_CODES = {
     istanbul_bakirkoy: 9541,
     istanbul_basaksehir: 17866,
     istanbul_buyukcekmece: 9537,
-    istanbul_catalca: 9538,   // En batı
+    istanbul_catalca: 9538,   // Far west
     istanbul_arnavutkoy: 9535,
     istanbul_silivri: 9541,
 
     // ==========================================
-    // BÜYÜK ŞEHİRLER (İl Merkezleri)
+    // MAJOR CITIES (Province Centers)
     // ==========================================
     ankara: 9206,
     izmir: 9560,
@@ -59,9 +59,9 @@ export const TURKEY_CITY_CODES = {
     gaziantep: 9453,
 
     // ==========================================
-    // ANADOLU İLLERİ
+    // ANATOLIAN PROVINCES
     // ==========================================
-    // Karadeniz
+    // Black Sea
     trabzon: 17874,
     samsun: 9824,
     bartin: 9296,
@@ -80,7 +80,7 @@ export const TURKEY_CITY_CODES = {
     canakkale: 9343,
     balikesir: 9285,
 
-    // Ege
+    // Aegean
     manisa: 9717,
     aydin: 9269,
     denizli: 9363,
@@ -89,7 +89,7 @@ export const TURKEY_CITY_CODES = {
     afyon: 9156,
     kutahya: 9691,
 
-    // Akdeniz
+    // Mediterranean
     mersin: 9743,
     hatay: 9479,
     adana: 9146,
@@ -98,7 +98,7 @@ export const TURKEY_CITY_CODES = {
     isparta: 9540,
     burdur: 9326,
 
-    // İç Anadolu
+    // Central Anatolia
     kayseri: 9609,
     eskisehir: 9400,
     konya: 9676,
@@ -111,7 +111,7 @@ export const TURKEY_CITY_CODES = {
     kirsehir: 9651,
     sivas: 9859,
 
-    // Güneydoğu Anadolu
+    // Southeastern Anatolia
     diyarbakir: 9381,
     sanliurfa: 9839,
     gaziantep: 9453,
@@ -122,7 +122,7 @@ export const TURKEY_CITY_CODES = {
     adiyaman: 9150,
     kilis: 9644,
 
-    // Doğu Anadolu
+    // Eastern Anatolia
     van: 17928,
     erzurum: 9391,
     malatya: 9703,
@@ -259,7 +259,7 @@ export const fetchDiyanetPrayerTimesForDate = async (districtCode, date) => {
  * 
  * @example
  * const today = await fetchDiyanetToday('istanbul');
- * console.log(today.aksam); // İftar vakti
+ * console.log(today.aksam); // Iftar time
  */
 export const fetchDiyanetToday = async (districtCode) => {
     const times = await fetchDiyanetPrayerTimes(districtCode);

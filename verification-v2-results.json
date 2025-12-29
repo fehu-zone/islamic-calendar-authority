@@ -1,0 +1,27 @@
+{
+  "vincenty": {
+    "distanceKm": 10323.92,
+    "bearing": 58.396,
+    "passed": true
+  },
+  "qibla": {
+    "trueNorth": 151.5138,
+    "magneticDec": 5.5,
+    "magneticNorth": 146.0138,
+    "passed": true
+  },
+  "tolerance": {
+    "turkey": {
+      "value": 1,
+      "passed": true
+    },
+    "usa": {
+      "value": 2,
+      "passed": true
+    }
+  },
+  "safety": {
+    "flag": "LOW_PRECISION",
+    "passed": true
+  }
+}

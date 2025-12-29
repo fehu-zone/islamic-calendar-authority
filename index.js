@@ -15,10 +15,10 @@
 // RAMADAN & AUTHORITY DATA
 // ============================================
 
-// Resmi Otorite Verileri
+// Official Authority Data
 export { AUTHORITIES, getAuthorityByCode, getAllAuthorities } from './data/authorities.js';
 
-// Ramazan Tarihleri (Yıllık Güncelleme)
+// Ramadan Dates (Updated Yearly)
 export {
     RAMADAN_DATES,
     getRamadanDatesForCountry,
@@ -26,7 +26,7 @@ export {
     getRamadanDayForDate
 } from './data/ramadanDates.js';
 
-// Hesaplama Metodları
+// Calculation Methods
 export {
     CALCULATION_METHODS,
     METHOD_IDS,
@@ -38,7 +38,7 @@ export {
     compareMethodAngles
 } from './methods.js';
 
-// Ana Fonksiyonlar (Ramadan)
+// Main Functions (Ramadan)
 export {
     getRamadanStartDate,
     getRamadanEndDate,
@@ -51,7 +51,7 @@ export {
     compareRamadanStartDates
 } from './core.js';
 
-// Ülke Yardımcıları
+// Country Helpers
 export {
     normalizeCountryName,
     getCountryCode,

@@ -1,28 +1,28 @@
 /**
- * RAMAZAN TARİHLERİ VERİTABANI
- * ============================
- * Yıllık olarak güncellenen resmi Ramazan başlangıç/bitiş tarihleri.
+ * RAMADAN DATES DATABASE
+ * ======================
+ * Annually updated official Ramadan start/end dates.
  * 
- * Kaynak: Her ülkenin resmi dini otoritelerinin ilanları
+ * Source: Official announcements from each country's religious authorities
  * 
- * NOT: Bu veriler her yıl Ramazan öncesinde resmi ilanlarla güncellenir.
- * Henüz ilan edilmemiş yıllar için astronomik tahmin + tarihsel offset kullanılır.
+ * NOTE: This data is updated before Ramadan each year with official announcements.
+ * For years not yet announced, astronomical prediction + historical offset is used.
  */
 
 /**
- * Ramazan tarihleri (Hicri Yıl -> Ülke Kodu -> Tarihler)
+ * Ramadan dates (Hijri Year -> Country Code -> Dates)
  * 
  * Format:
  * {
- *   start: 'YYYY-MM-DD',  // İlk sahur gecesi (Ramazan 1. gün)
- *   end: 'YYYY-MM-DD',    // Son iftar günü (Ramazan 29/30. gün)
- *   duration: 29 | 30,    // Ramazan süresi (gün)
+ *   start: 'YYYY-MM-DD',  // First sahur night (1st day of Ramadan)
+ *   end: 'YYYY-MM-DD',    // Last day of iftar (29th/30th day of Ramadan)
+ *   duration: 29 | 30,    // Ramadan duration (days)
  *   source: 'official' | 'astronomical' | 'estimated',
- *   announcedAt: 'YYYY-MM-DD' | null  // Resmi ilan tarihi
+ *   announcedAt: 'YYYY-MM-DD' | null  // Official announcement date
  * }
  */
 export const RAMADAN_DATES = {
-    // HİCRİ 1446 (2025)
+    // HIJRI 1446 (2025)
     1446: {
         TR: {
             start: '2025-03-01',
@@ -30,7 +30,7 @@ export const RAMADAN_DATES = {
             duration: 29,
             source: 'official',
             announcedAt: '2024-12-01',
-            notes: 'Diyanet takvimi'
+            notes: 'Diyanet calendar'
         },
         SA: {
             start: '2025-02-28',
@@ -38,92 +38,92 @@ export const RAMADAN_DATES = {
             duration: 30,
             source: 'official',
             announcedAt: null,
-            notes: 'Umm Al-Qura takvimi'
+            notes: 'Umm Al-Qura calendar'
         },
-        // Diğer ülkeler için varsayılan astronomik
+        // Default astronomical for other countries
         DEFAULT: {
             start: '2025-02-28',
             end: '2025-03-29',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'Astronomik hesaplama'
+            notes: 'Astronomical calculation'
         }
     },
 
-    // HİCRİ 1447 (2026) - HEDEF YIL
+    // HIJRI 1447 (2026) - TARGET YEAR
     1447: {
-        // TÜRKİYE - Diyanet Takvimi
-        // İlk Sahur: 18-19 Şubat gecesi, İlk iftar: 19 Şubat
+        // TURKEY - Diyanet Calendar
+        // First Sahur: Night of Feb 18-19, First iftar: Feb 19
         TR: {
-            start: '2026-02-19',  // Ramazan 1. Gün (İlk sahur 18-19 gecesi)
-            end: '2026-03-20',   // Ramazan 30. Gün veya Bayram 1. gün öncesi
+            start: '2026-02-19',  // Day 1 of Ramadan (First sahur night of 18-19)
+            end: '2026-03-20',   // Day 30 of Ramadan or before Eid day 1
             duration: 30,
-            source: 'official',  // Diyanet takvimi (önceden hesaplanmış)
-            announcedAt: null,   // Henüz resmi ilan yok
-            notes: 'Diyanet İşleri Başkanlığı hesaplaması. İlk sahur 18 Şubat gecesi.'
+            source: 'official',  // Diyanet calendar (pre-calculated)
+            announcedAt: null,   // No official announcement yet
+            notes: 'Diyanet Affairs calculation. First sahur night of Feb 18.'
         },
 
-        // SUUDİ ARABİSTAN - Umm Al-Qura
-        // Genelde Türkiye ile aynı veya 1 gün önce başlar
+        // SAUDI ARABIA - Umm Al-Qura
+        // Usually starts same as Turkey or 1 day before
         SA: {
             start: '2026-02-18',  // Astronomik olarak 18 Şubat
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'Umm Al-Qura astronomik takvimi. Hilal gözlemiyle değişebilir.'
+            notes: 'Umm Al-Qura astronomical calendar. May change with moon sighting.'
         },
 
-        // PAKİSTAN - Ruet-e-Hilal
-        // Genelde Suudi'den 1 gün sonra başlar
+        // PAKISTAN - Ruet-e-Hilal
+        // Usually starts 1 day after Saudi Arabia
         PK: {
             start: '2026-02-19',
             end: '2026-03-20',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Tarihsel pattern: Genelde Suudi\'den 1 gün sonra. Hilal gözlemiyle kesinleşir.'
+            notes: 'Historical pattern: Usually 1 day after Saudi. Confirmed by moon sighting.'
         },
 
-        // HİNDİSTAN
+        // INDIA
         IN: {
             start: '2026-02-19',
             end: '2026-03-20',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Bölgeden bölgeye değişebilir. Kuzey vs Güney farklı olabilir.'
+            notes: 'May vary region to region. North vs South might be different.'
         },
 
-        // BANGLADEŞ
+        // BANGLADESH
         BD: {
             start: '2026-02-19',
             end: '2026-03-20',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Pakistan ile genelde aynı gün.'
+            notes: 'Usually same day as Pakistan.'
         },
 
-        // ENDONEZYA
+        // INDONESIA
         ID: {
             start: '2026-02-19',
             end: '2026-03-20',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Kemenag ilanı bekleniyor.'
+            notes: 'Waiting for Kemenag announcement.'
         },
 
-        // MALEZYA
+        // MALAYSIA
         MY: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Singapur ve Brunei ile aynı.'
+            notes: 'Same as Singapore and Brunei.'
         },
 
         // ABD (ISNA)
@@ -133,7 +133,7 @@ export const RAMADAN_DATES = {
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'ISNA hesaplama metodu.'
+            notes: 'ISNA calculation method.'
         },
 
         // KANADA
@@ -143,81 +143,81 @@ export const RAMADAN_DATES = {
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'ABD ile aynı.'
+            notes: 'Same as the USA.'
         },
 
-        // BİRLEŞİK KRALLIK
+        // UNITED KINGDOM
         GB: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'MCB ilanı bekleniyor.'
+            notes: 'Waiting for MCB announcement.'
         },
 
-        // ALMANYA
+        // GERMANY
         DE: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'ZMD veya DITIB ilanı.'
+            notes: 'ZMD or DITIB announcement.'
         },
 
-        // FRANSA
+        // FRANCE
         FR: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'UOIF takvimi.'
+            notes: 'UOIF calendar.'
         },
 
-        // MISIR
+        // EGYPT
         EG: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Dar al-Ifta hilal gözlemi.'
+            notes: 'Dar al-Ifta moon sighting.'
         },
 
-        // KATAR
+        // QATAR
         QA: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'Suudi ile aynı.'
+            notes: 'Same as Saudi.'
         },
 
-        // BAE
+        // UAE
         AE: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'Suudi ile aynı.'
+            notes: 'Same as Saudi.'
         },
 
-        // VARSAYILAN (Astronomik)
+        // DEFAULT (Astronomical)
         DEFAULT: {
             start: '2026-02-18',
             end: '2026-03-19',
             duration: 30,
             source: 'astronomical',
             announcedAt: null,
-            notes: 'Astronomik hesaplama. Yerel otorite farklı ilan edebilir.'
+            notes: 'Astronomical calculation. Local authority may announce differently.'
         }
     },
 
-    // HİCRİ 1448 (2027) - GELECEK
+    // HIJRI 1448 (2027) - FUTURE
     1448: {
         DEFAULT: {
             start: '2027-02-07',  // Tahmini
@@ -225,16 +225,16 @@ export const RAMADAN_DATES = {
             duration: 30,
             source: 'estimated',
             announcedAt: null,
-            notes: 'Astronomik tahmin. Resmi ilanlar bekleniyor.'
+            notes: 'Astronomical prediction. Official announcements pending.'
         }
     }
 };
 
 /**
- * Belirli bir yıl ve ülke için Ramazan tarihlerini döndürür
- * @param {number} hijriYear - Hicri yıl (örn: 1447)
- * @param {string} countryCode - ISO 2 harfli ülke kodu (örn: 'TR')
- * @returns {Object} Ramazan tarihleri
+ * Returns Ramadan dates for a specific year and country
+ * @param {number} hijriYear - Hijri year (e.g., 1447)
+ * @param {string} countryCode - ISO 2-letter country code (e.g., 'TR')
+ * @returns {Object} Ramadan dates
  */
 export const getRamadanDatesForCountry = (hijriYear, countryCode) => {
     const yearData = RAMADAN_DATES[hijriYear];
@@ -244,23 +244,23 @@ export const getRamadanDatesForCountry = (hijriYear, countryCode) => {
 
     const code = countryCode?.toUpperCase();
 
-    // Önce ülke spesifik veri ara
+    // Look for country specific data first
     if (yearData[code]) {
         return yearData[code];
     }
 
-    // Yoksa varsayılan döndür
+    // Otherwise return default
     return yearData.DEFAULT || null;
 };
 
 /**
- * Belirli bir tarihin Ramazan içinde olup olmadığını kontrol eder
- * @param {Date} date - Kontrol edilecek tarih
- * @param {string} countryCode - Ülke kodu
+ * Checks if a specific date is within Ramadan
+ * @param {Date} date - Date to check
+ * @param {string} countryCode - Country code
  * @returns {boolean}
  */
 export const isDateInRamadan = (date, countryCode = 'DEFAULT') => {
-    // Tüm yılları kontrol et
+    // Check all years
     for (const [hijriYear, yearData] of Object.entries(RAMADAN_DATES)) {
         const countryData = yearData[countryCode?.toUpperCase()] || yearData.DEFAULT;
         if (countryData) {
@@ -276,10 +276,10 @@ export const isDateInRamadan = (date, countryCode = 'DEFAULT') => {
 };
 
 /**
- * Belirli bir tarih için Ramazan gününü döndürür (1-30)
- * @param {Date} date - Tarih
- * @param {string} countryCode - Ülke kodu
- * @returns {number|null} Ramazan günü veya null
+ * Returns the Ramadan day for a specific date (1-30)
+ * @param {Date} date - Date
+ * @param {string} countryCode - Country code
+ * @returns {number|null} Ramadan day or null
  */
 export const getRamadanDayForDate = (date, countryCode = 'DEFAULT') => {
     for (const [hijriYear, yearData] of Object.entries(RAMADAN_DATES)) {

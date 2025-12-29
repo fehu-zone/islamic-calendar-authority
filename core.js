@@ -1,7 +1,7 @@
 /**
  * CORE FUNCTIONS
  * ==============
- * Ana kütüphane fonksiyonları
+ * Main library functions
  */
 
 import { AUTHORITIES, getAuthorityByCode } from './data/authorities.js';
@@ -10,11 +10,11 @@ import { getCountryCode, normalizeCountryName } from './utils/countries.js';
 import { getMethodForCountry } from './methods.js';
 
 /**
- * Belirli bir ülke için Ramazan başlangıç tarihini döndürür
+ * Returns the Ramadan start date for a specific country
  * 
- * @param {number} hijriYear - Hicri yıl (örn: 1447)
- * @param {string} country - Ülke adı veya kodu (örn: 'Turkey', 'TR', 'türkiye')
- * @returns {Date|null} Ramazan başlangıç tarihi
+ * @param {number} hijriYear - Hijri year (e.g., 1447)
+ * @param {string} country - Country name or code (e.g., 'Turkey', 'TR', 'turkiye')
+ * @returns {Date|null} Ramadan start date
  * 
  * @example
  * getRamadanStartDate(1447, 'Turkey')  // -> Date(2026-02-19)
@@ -32,11 +32,11 @@ export const getRamadanStartDate = (hijriYear, country) => {
 };
 
 /**
- * Belirli bir ülke için Ramazan bitiş tarihini döndürür
+ * Returns the Ramadan end date for a specific country
  * 
- * @param {number} hijriYear - Hicri yıl
- * @param {string} country - Ülke adı veya kodu
- * @returns {Date|null} Ramazan bitiş tarihi (son iftar günü)
+ * @param {number} hijriYear - Hijri year
+ * @param {string} country - Country name or code
+ * @returns {Date|null} Ramadan end date (last day of iftar)
  */
 export const getRamadanEndDate = (hijriYear, country) => {
     const countryCode = getCountryCode(country) || country?.toUpperCase();
@@ -50,11 +50,11 @@ export const getRamadanEndDate = (hijriYear, country) => {
 };
 
 /**
- * Belirli bir ülke için Ramazan süresini döndürür
+ * Returns the Ramadan duration for a specific country
  * 
- * @param {number} hijriYear - Hicri yıl
- * @param {string} country - Ülke adı veya kodu
- * @returns {number} Gün sayısı (29 veya 30)
+ * @param {number} hijriYear - Hijri year
+ * @param {string} country - Country name or code
+ * @returns {number} Number of days (29 or 30)
  */
 export const getRamadanDuration = (hijriYear, country) => {
     const countryCode = getCountryCode(country) || country?.toUpperCase();
@@ -64,10 +64,10 @@ export const getRamadanDuration = (hijriYear, country) => {
 };
 
 /**
- * Belirli bir tarihin Ramazan olup olmadığını kontrol eder
+ * Checks if a specific date is within Ramadan
  * 
- * @param {Date} date - Kontrol edilecek tarih
- * @param {string} country - Ülke adı veya kodu
+ * @param {Date} date - Date to check
+ * @param {string} country - Country name or code
  * @returns {boolean}
  * 
  * @example
@@ -80,11 +80,11 @@ export const isRamadan = (date, country) => {
 };
 
 /**
- * Belirli bir tarih için Ramazan gününü döndürür
+ * Returns the Ramadan day for a specific date
  * 
- * @param {Date} date - Tarih
- * @param {string} country - Ülke adı veya kodu
- * @returns {number|null} Ramazan günü (1-30) veya null
+ * @param {Date} date - Date
+ * @param {string} country - Country name or code
+ * @returns {number|null} Ramadan day (1-30) or null
  * 
  * @example
  * getRamadanDay(new Date('2026-02-19'), 'Turkey')  // -> 1
@@ -96,10 +96,10 @@ export const getRamadanDay = (date, country) => {
 };
 
 /**
- * Ülke için resmi otorite bilgisini döndürür
+ * Returns the official authority information for the country
  * 
- * @param {string} country - Ülke adı veya kodu
- * @returns {Object|null} Otorite bilgisi
+ * @param {string} country - Country name or code
+ * @returns {Object|null} Authority information
  * 
  * @example
  * getAuthorityForCountry('Turkey')
@@ -111,30 +111,30 @@ export const getAuthorityForCountry = (country) => {
 };
 
 /**
- * Ülke için hesaplama metod ID'sini döndürür
+ * Returns the calculation method ID for the country
  * 
- * @param {string} country - Ülke adı veya kodu
+ * @param {string} country - Country name or code
  * @returns {number} Method ID
  */
 export const getMethodIdForCountry = (country) => {
     const countryCode = getCountryCode(country) || country?.toUpperCase();
 
-    // Önce authorities'den bak
+    // Check authorities first
     const authority = getAuthorityByCode(countryCode);
     if (authority?.methodId) {
         return authority.methodId;
     }
 
-    // Yoksa methods.js'den bak
+    // Otherwise check methods.js
     return getMethodForCountry(countryCode);
 };
 
 /**
- * Ramazan 30 günlük takvim verisini döndürür
+ * Returns Ramadan 30-day calendar data
  * 
- * @param {number} hijriYear - Hicri yıl
- * @param {string} country - Ülke adı veya kodu
- * @returns {Array} 30 günlük veri [{day, date, gregorianDate, weekday}]
+ * @param {number} hijriYear - Hijri year
+ * @param {string} country - Country name or code
+ * @returns {Array} 30-day data [{day, date, gregorianDate, weekday}]
  */
 export const getRamadanCalendar = (hijriYear, country) => {
     const startDate = getRamadanStartDate(hijriYear, country);
@@ -162,10 +162,10 @@ export const getRamadanCalendar = (hijriYear, country) => {
 };
 
 /**
- * Debugging: Tüm ülkelerin Ramazan 1. gününü karşılaştır
+ * Debugging: Compare the 1st day of Ramadan for all countries
  * 
- * @param {number} hijriYear - Hicri yıl
- * @returns {Array} Ülke karşılaştırması
+ * @param {number} hijriYear - Hijri year
+ * @returns {Array} Country comparison
  */
 export const compareRamadanStartDates = (hijriYear) => {
     const yearData = RAMADAN_DATES[hijriYear];
@@ -186,7 +186,7 @@ export const compareRamadanStartDates = (hijriYear) => {
         });
     }
 
-    // Tarihe göre sırala
+    // Sort by date
     comparison.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
     return comparison;

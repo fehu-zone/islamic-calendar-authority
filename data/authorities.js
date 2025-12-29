@@ -1,13 +1,13 @@
 /**
- * RESMI DINI OTORITE VERILERI
- * ===========================
- * Her ülkenin resmi dini otoritesi ve tercih ettiği hesaplama metodu.
+ * OFFICIAL RELIGIOUS AUTHORITY DATA
+ * =================================
+ * Official religious authority and preferred calculation method for each country.
  * 
- * Kaynak: Her ülkenin resmi dini kurumları
+ * Source: Official religious institutions of each country
  */
 
 export const AUTHORITIES = {
-    // TÜRKİYE
+    // TURKEY
     TR: {
         code: 'TR',
         name: 'Turkey',
@@ -17,12 +17,12 @@ export const AUTHORITIES = {
         methodId: 13,
         website: 'https://www.diyanet.gov.tr',
         timezone: 'Europe/Istanbul',
-        // Diyanet kendi takvimini yayınlar, astronomik hesaplamadan genelde 1 gün farklı olabilir
-        usesLunarSighting: false, // Hesaplama bazlı
-        notes: 'Diyanet, Türkiye için resmi namaz vakitlerini ve dini takvimleri yayınlar.'
+        // Diyanet publishes its own calendar, which can differ from astronomical calculations by 1 day
+        usesLunarSighting: false, // Calculation based
+        notes: 'Diyanet publishes official prayer times and religious calendars for Turkey.'
     },
 
-    // SUUDİ ARABİSTAN
+    // SAUDI ARABIA
     SA: {
         code: 'SA',
         name: 'Saudi Arabia',
@@ -32,11 +32,11 @@ export const AUTHORITIES = {
         methodId: 4,
         website: 'https://www.ummulqura.org.sa',
         timezone: 'Asia/Riyadh',
-        usesLunarSighting: true, // Hilal gözlemi esas
-        notes: 'Mekke ve Medine için referans. Hilal gözlemine göre karar verir.'
+        usesLunarSighting: true, // Moon sighting based
+        notes: 'Reference for Makkah and Madinah. Decides based on moon sighting.'
     },
 
-    // MISIR
+    // EGYPT
     EG: {
         code: 'EG',
         name: 'Egypt',
@@ -47,10 +47,10 @@ export const AUTHORITIES = {
         website: 'https://www.esa.gov.eg',
         timezone: 'Africa/Cairo',
         usesLunarSighting: true,
-        notes: 'Mısır Dar al-Ifta hilal gözlemine göre karar verir.'
+        notes: 'Egypt Dar al-Ifta decides based on moon sighting.'
     },
 
-    // İRAN
+    // IRAN
     IR: {
         code: 'IR',
         name: 'Iran',
@@ -61,10 +61,10 @@ export const AUTHORITIES = {
         website: 'https://geophysics.ut.ac.ir',
         timezone: 'Asia/Tehran',
         usesLunarSighting: false,
-        notes: 'Şii hesaplama açıları kullanır.'
+        notes: 'Uses Shia calculation angles.'
     },
 
-    // PAKİSTAN
+    // PAKISTAN
     PK: {
         code: 'PK',
         name: 'Pakistan',
@@ -75,10 +75,10 @@ export const AUTHORITIES = {
         website: 'https://www.moonsighting.pk',
         timezone: 'Asia/Karachi',
         usesLunarSighting: true,
-        notes: 'Hilal gözlemi ile karar verir. Genelde Suudi\'den 1 gün sonra başlar.'
+        notes: 'Decides by moon sighting. Usually starts 1 day after Saudi Arabia.'
     },
 
-    // HİNDİSTAN
+    // INDIA
     IN: {
         code: 'IN',
         name: 'India',
@@ -89,10 +89,10 @@ export const AUTHORITIES = {
         website: null,
         timezone: 'Asia/Kolkata',
         usesLunarSighting: true,
-        notes: 'Yerel hilal gözlemi. Bölgeden bölgeye farklılık gösterebilir.'
+        notes: 'Local moon sighting. May vary from region to region.'
     },
 
-    // BANGLADEŞ
+    // BANGLADESH
     BD: {
         code: 'BD',
         name: 'Bangladesh',
@@ -103,10 +103,10 @@ export const AUTHORITIES = {
         website: 'https://islamicfoundation.gov.bd',
         timezone: 'Asia/Dhaka',
         usesLunarSighting: true,
-        notes: 'Genelde Suudi ile aynı gün veya 1 gün sonra başlar.'
+        notes: 'Usually starts on the same day as Saudi Arabia or 1 day after.'
     },
 
-    // ENDONEZYA
+    // INDONESIA
     ID: {
         code: 'ID',
         name: 'Indonesia',
@@ -117,10 +117,10 @@ export const AUTHORITIES = {
         website: 'https://kemenag.go.id',
         timezone: 'Asia/Jakarta',
         usesLunarSighting: true,
-        notes: 'Dünyanın en kalabalık Müslüman nüfusu. Ortak hilal kararı alır.'
+        notes: 'Worlds most populous Muslim population. Makes a joint moon sighting decision.'
     },
 
-    // MALEZYA
+    // MALAYSIA
     MY: {
         code: 'MY',
         name: 'Malaysia',
@@ -131,10 +131,10 @@ export const AUTHORITIES = {
         website: 'https://www.islam.gov.my',
         timezone: 'Asia/Kuala_Lumpur',
         usesLunarSighting: true,
-        notes: 'Singapur ve Brunei ile koordineli çalışır.'
+        notes: 'Works in coordination with Singapore and Brunei.'
     },
 
-    // ABD
+    // USA
     US: {
         code: 'US',
         name: 'United States',
@@ -145,10 +145,10 @@ export const AUTHORITIES = {
         website: 'https://www.isna.net',
         timezone: 'America/New_York',
         usesLunarSighting: false, // Hesaplama bazlı (Moonsighting.com bazıları)
-        notes: 'ISNA hesaplama kullanır. Fiqh Council of North America kararları.'
+        notes: 'ISNA uses calculation. Fiqh Council of North America decisions.'
     },
 
-    // KANADA
+    // CANADA
     CA: {
         code: 'CA',
         name: 'Canada',
@@ -159,10 +159,10 @@ export const AUTHORITIES = {
         website: 'https://www.isnacanada.com',
         timezone: 'America/Toronto',
         usesLunarSighting: false,
-        notes: 'ABD ile aynı metodoloji.'
+        notes: 'Same methodology as the USA.'
     },
 
-    // BİRLEŞİK KRALLIK
+    // UNITED KINGDOM
     GB: {
         code: 'GB',
         name: 'United Kingdom',
@@ -173,10 +173,10 @@ export const AUTHORITIES = {
         website: 'https://mcb.org.uk',
         timezone: 'Europe/London',
         usesLunarSighting: false,
-        notes: 'MWL metodu kullanır. Farklı cemaatler farklı günler takip edebilir.'
+        notes: 'Uses MWL method. Different communities may follow different days.'
     },
 
-    // ALMANYA
+    // GERMANY
     DE: {
         code: 'DE',
         name: 'Germany',
@@ -187,10 +187,10 @@ export const AUTHORITIES = {
         website: 'https://zentralrat.de',
         timezone: 'Europe/Berlin',
         usesLunarSighting: false,
-        notes: 'MWL metodu. DITIB (Diyanet Almanya) farklı takvim kullanabilir.'
+        notes: 'MWL method. DITIB (Diyanet Germany) may use a different calendar.'
     },
 
-    // FRANSA
+    // FRANCE
     FR: {
         code: 'FR',
         name: 'France',
@@ -201,10 +201,10 @@ export const AUTHORITIES = {
         website: 'https://www.uoif-online.com',
         timezone: 'Europe/Paris',
         usesLunarSighting: false,
-        notes: 'Fransa için özel hesaplama metodu.'
+        notes: 'Special calculation method for France.'
     },
 
-    // KATAR
+    // QATAR
     QA: {
         code: 'QA',
         name: 'Qatar',
@@ -215,10 +215,10 @@ export const AUTHORITIES = {
         website: 'https://www.awqaf.gov.qa',
         timezone: 'Asia/Qatar',
         usesLunarSighting: true,
-        notes: 'Suudi Arabistan ile genelde aynı günde başlar.'
+        notes: 'Usually starts on the same day as Saudi Arabia.'
     },
 
-    // BAE
+    // UAE
     AE: {
         code: 'AE',
         name: 'United Arab Emirates',
@@ -229,10 +229,10 @@ export const AUTHORITIES = {
         website: 'https://www.awqaf.gov.ae',
         timezone: 'Asia/Dubai',
         usesLunarSighting: true,
-        notes: 'Suudi Arabistan ile genelde aynı günde başlar.'
+        notes: 'Usually starts on the same day as Saudi Arabia.'
     },
 
-    // KUVEYT
+    // KUWAIT
     KW: {
         code: 'KW',
         name: 'Kuwait',
@@ -243,10 +243,10 @@ export const AUTHORITIES = {
         website: 'https://www.awqaf.gov.kw',
         timezone: 'Asia/Kuwait',
         usesLunarSighting: true,
-        notes: 'Körfez ülkeleri ile koordineli.'
+        notes: 'Coordinated with Gulf countries.'
     },
 
-    // FAS
+    // MOROCCO
     MA: {
         code: 'MA',
         name: 'Morocco',
@@ -257,10 +257,10 @@ export const AUTHORITIES = {
         website: 'https://www.habous.gov.ma',
         timezone: 'Africa/Casablanca',
         usesLunarSighting: true,
-        notes: 'Kuzey Afrika için referans. Kendi hilal gözlemi.'
+        notes: 'Reference for North Africa. Own moon sighting.'
     },
 
-    // CEZAYİR
+    // ALGERIA
     DZ: {
         code: 'DZ',
         name: 'Algeria',
@@ -271,10 +271,10 @@ export const AUTHORITIES = {
         website: 'https://www.marw.dz',
         timezone: 'Africa/Algiers',
         usesLunarSighting: true,
-        notes: 'Genelde Fas ile aynı gün başlar.'
+        notes: 'Usually starts on the same day as Morocco.'
     },
 
-    // RUSYA
+    // RUSSIA
     RU: {
         code: 'RU',
         name: 'Russia',
@@ -285,10 +285,10 @@ export const AUTHORITIES = {
         website: 'https://www.dumrf.ru',
         timezone: 'Europe/Moscow',
         usesLunarSighting: false,
-        notes: 'Rusya Müslümanları için özel hesaplama.'
+        notes: 'Special calculation for Russian Muslims.'
     },
 
-    // BOSNA HERSEK
+    // BOSNIA AND HERZEGOVINA
     BA: {
         code: 'BA',
         name: 'Bosnia and Herzegovina',
@@ -299,10 +299,10 @@ export const AUTHORITIES = {
         website: 'https://www.rijaset.ba',
         timezone: 'Europe/Sarajevo',
         usesLunarSighting: false,
-        notes: 'Balkanlar için referans. Türkiye ile koordineli olabilir.'
+        notes: 'Reference for the Balkans. May be coordinated with Turkey.'
     },
 
-    // ÜRDÜN
+    // JORDAN
     JO: {
         code: 'JO',
         name: 'Jordan',
@@ -313,10 +313,10 @@ export const AUTHORITIES = {
         website: 'https://www.awqaf.gov.jo',
         timezone: 'Asia/Amman',
         usesLunarSighting: true,
-        notes: 'Filistin ile genelde aynı gün başlar.'
+        notes: 'Usually starts on the same day as Palestine.'
     },
 
-    // NİJERYA
+    // NIGERIA
     NG: {
         code: 'NG',
         name: 'Nigeria',
@@ -327,14 +327,14 @@ export const AUTHORITIES = {
         website: null,
         timezone: 'Africa/Lagos',
         usesLunarSighting: true,
-        notes: 'Afrika\'nın en kalabalık Müslüman nüfusu.'
+        notes: 'Africas most populous Muslim population.'
     }
 };
 
 /**
- * Ülke kodundan otorite bilgisini döndürür
- * @param {string} countryCode - ISO 2 harfli ülke kodu (TR, SA, US vb.)
- * @returns {Object|null} Otorite bilgisi
+ * Returns authority information from country code
+ * @param {string} countryCode - ISO 2-letter country code (TR, SA, US etc.)
+ * @returns {Object|null} Authority information
  */
 export const getAuthorityByCode = (countryCode) => {
     if (!countryCode) return null;
@@ -342,8 +342,8 @@ export const getAuthorityByCode = (countryCode) => {
 };
 
 /**
- * Tüm otoritelerin listesini döndürür
- * @returns {Array} Otorite listesi
+ * Returns a list of all authorities
+ * @returns {Array} Authority list
  */
 export const getAllAuthorities = () => {
     return Object.values(AUTHORITIES);
