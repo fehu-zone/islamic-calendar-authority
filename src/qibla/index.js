@@ -7,6 +7,7 @@
 export {
     calculateQiblaDirection,
     calculateDistanceToKaaba,
+    getQiblaInfo,
     getCompassDirection,
     getCompassDirectionFull,
     getCompassDirection16,

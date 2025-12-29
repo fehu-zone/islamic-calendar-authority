@@ -1,6 +1,6 @@
 {
   "name": "@fehu-zone/islamic-calendar-authority",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Comprehensive Islamic calendar library with prayer times, Ramadan dates, and Qibla calculation based on official religious authorities worldwide",
   "type": "module",
   "main": "index.js",
