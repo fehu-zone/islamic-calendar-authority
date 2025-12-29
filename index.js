@@ -8,7 +8,7 @@
  * 
  * @author Ramazan App Team
  * @license MIT
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 // ============================================
@@ -58,6 +58,8 @@ export {
     getCountryNameByCode,
     COUNTRY_ALIASES
 } from './utils/countries.js';
+
+export { providers } from './src/core/providers.js';
 
 // ============================================
 // PRAYER TIMES
@@ -177,5 +179,5 @@ export const getIslamicData = async (date, latitude, longitude, country, options
 // VERSION
 // ============================================
 
-export const VERSION = '1.0.0';
+export const VERSION = '2.0.0';
 export const LIBRARY_NAME = 'islamic-calendar-authority';
