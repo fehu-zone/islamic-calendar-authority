@@ -33,6 +33,8 @@ Switched from Haversine (Spherical) to **Vincenty's Formulae** (Ellipsoidal).
 
 ## 📦 Installation
 
+Node.js 18+ is required.
+
 ```bash
 npm install @fehu-zone/islamic-calendar-authority
 ```

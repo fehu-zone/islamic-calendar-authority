@@ -15,6 +15,11 @@
 
 const DIYANET_BASE_URL = 'https://ezanvakti.emushaf.net';
 
+const toLocalIsoDate = (date) => {
+    const offsetMs = date.getTimezoneOffset() * 60 * 1000;
+    return new Date(date.getTime() - offsetMs).toISOString().split('T')[0];
+};
+
 /**
  * Common Turkish cities with their Diyanet district codes
  * Code 9541 = İstanbul (Fatih)
@@ -243,7 +248,7 @@ export const fetchDiyanetPrayerTimes = async (districtCode) => {
 export const fetchDiyanetPrayerTimesForDate = async (districtCode, date) => {
     const times = await fetchDiyanetPrayerTimes(districtCode);
 
-    const targetDate = date.toISOString().split('T')[0];
+    const targetDate = toLocalIsoDate(date);
 
     return times.find(day => {
         const dayDate = day.gregorianDate;
@@ -263,7 +268,7 @@ export const fetchDiyanetPrayerTimesForDate = async (districtCode, date) => {
  */
 export const fetchDiyanetToday = async (districtCode) => {
     const times = await fetchDiyanetPrayerTimes(districtCode);
-    const today = new Date().toISOString().split('T')[0];
+    const today = toLocalIsoDate(new Date());
 
     const todayTimes = times.find(day => day.gregorianDate === today);
 

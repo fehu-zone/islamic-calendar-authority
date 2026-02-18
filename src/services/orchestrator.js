@@ -5,13 +5,28 @@
  * Implements "Safe Location" checks and Hybrid Validation.
  */
 
-import { AlAdhanSource, InternalCalculationSource } from './dataSources.js';
+import { AlAdhanSource, InternalCalculationSource, DiyanetSource } from './dataSources.js';
 import { CrossCheckService } from './crossCheck.js';
-import { providers } from '../core/providers.js';
+
+const isTurkeyCountry = (country) => {
+    if (!country || typeof country !== 'string') return false;
+    const normalized = country
+        .toLowerCase()
+        .replace(/\u0131/g, 'i')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    return normalized === 'tr' || normalized === 'turkey' || normalized === 'turkiye';
+};
+
+const isTurkeyCoords = (lat, lng) => {
+    return lat >= 35.8 && lat <= 42.2 && lng >= 25.6 && lng <= 44.9;
+};
 
 class PrayerTimeOrchestrator {
     constructor() {
-        this.primarySource = new AlAdhanSource();
+        this.globalPrimarySource = new AlAdhanSource();
+        this.turkeyPrimarySource = new DiyanetSource();
         this.referenceSource = new InternalCalculationSource();
         this.validator = new CrossCheckService({ defaultTolerance: 2, strictTolerance: 1 });
     }
@@ -23,8 +38,12 @@ class PrayerTimeOrchestrator {
         const {
             method = 13,
             accuracy = 0, // Location accuracy in meters (0 = unknown/perfect)
-            forceFallback = false
+            forceFallback = false,
+            country
         } = options;
+        const isTurkey = isTurkeyCountry(country) || isTurkeyCoords(latitude, longitude);
+        const primarySource = isTurkey ? this.turkeyPrimarySource : this.globalPrimarySource;
+        const referenceMethod = isTurkey ? 13 : method;
 
         // 1. Initial Safety Check
         // If accuracy > 100m, data is "Unsafe"
@@ -36,17 +55,19 @@ class PrayerTimeOrchestrator {
 
         // 2. Fallback Requested?
         if (forceFallback) {
-            return this.referenceSource.getTimes(date, latitude, longitude, { method });
+            return this.referenceSource.getTimes(date, latitude, longitude, { method: referenceMethod });
         }
 
         let primaryTimes = null;
         let referenceTimes = null;
-        const referencePromise = this.referenceSource.getTimes(date, latitude, longitude, { method });
+        const referencePromise = this.referenceSource.getTimes(date, latitude, longitude, {
+            method: referenceMethod
+        });
 
         try {
             // 3. Fetch Primary Data (API) & Reference
             [primaryTimes, referenceTimes] = await Promise.all([
-                this.primarySource.getTimes(date, latitude, longitude, { method }),
+                primarySource.getTimes(date, latitude, longitude, options),
                 referencePromise
             ]);
 
@@ -76,7 +97,32 @@ class PrayerTimeOrchestrator {
             return result;
 
         } catch (error) {
-            // Primary source failed, proceed to fallback logic
+            // If Turkey primary fails, try global API before local calculation fallback.
+            if (isTurkey) {
+                try {
+                    const secondaryPrimary = await this.globalPrimarySource.getTimes(date, latitude, longitude, {
+                        ...options,
+                        method: referenceMethod
+                    });
+
+                    if (!referenceTimes) {
+                        referenceTimes = await referencePromise;
+                    }
+
+                    const validationResult = this.validator.validate(secondaryPrimary, referenceTimes);
+                    const result = this.validator.recommend(validationResult, secondaryPrimary, referenceTimes);
+                    result._validation = {
+                        ...(result._validation || {}),
+                        upstreamFallback: 'DIYANET_TO_ALADHAN',
+                        upstreamReason: error.message
+                    };
+
+                    return result;
+                } catch (secondaryError) {
+                    // Continue to reference fallback below
+                    error = new Error(`Diyanet failed: ${error.message}; AlAdhan failed: ${secondaryError.message}`);
+                }
+            }
 
             if (!referenceTimes) {
                 referenceTimes = await referencePromise;

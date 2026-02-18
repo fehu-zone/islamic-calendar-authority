@@ -227,7 +227,10 @@ export const calculatePrayerTimes = (date, latitude, longitude, options = {}) =>
     const method = CALCULATION_METHODS[opts.methodId] || CALCULATION_METHODS[METHOD_IDS.DIYANET];
 
     // Calculate timezone
-    const timezone = opts.timezone !== null ? opts.timezone : estimateTimezone(longitude);
+    const systemTimezone = -date.getTimezoneOffset() / 60;
+    const timezone = opts.timezone !== null && opts.timezone !== undefined
+        ? opts.timezone
+        : (Number.isFinite(systemTimezone) ? systemTimezone : estimateTimezone(longitude));
 
     // Get Julian Day and astronomical parameters
     const jd = dateToJulian(date);
