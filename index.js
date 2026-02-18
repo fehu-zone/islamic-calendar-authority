@@ -8,7 +8,7 @@
  * 
  * @author Ramazan App Team
  * @license MIT
- * @version 2.1.0
+ * @version 2.1.2
  */
 
 // ============================================
@@ -180,5 +180,5 @@ export const getIslamicData = async (date, latitude, longitude, country, options
 // VERSION
 // ============================================
 
-export const VERSION = '2.1.0';
+export const VERSION = '2.1.2';
 export const LIBRARY_NAME = 'islamic-calendar-authority';
